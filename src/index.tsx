@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import ListItem from "./components/ListItem";
 import { connect } from "react-redux";
 //import { Data } from "../types";
-import { todos } from "./reducers";
+import { complete } from "./reducers/todos";
 
 const styles = StyleSheet.create({
   container: {
@@ -18,19 +18,18 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
   }
 });
-const App = ({todos}:any) => {
+const App = ({data, complete }:any) => {
 	return(
 		<View style={styles.container}>
       <Text>Lista Productos</Text>
 			<FlatList
         style={styles.list}
-        data={todos}
+        data={data}
         keyExtractor={x => String(x.id)}
         renderItem={({item}) =>
           <ListItem 
-            onPress={() => {}} 
+            onPress={() => complete(item.id)} 
             desc={item.desc}
-
           />
           }
       />
@@ -39,9 +38,10 @@ const App = ({todos}:any) => {
 	)
 }
 const mapStateToProps = (state: any) => {
-  console.log('state', state)
-  return state
+  return {data: state.todos}
 }
-
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = (dispatch: any) => ({
+  complete: (id:any) => dispatch(complete(id))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
