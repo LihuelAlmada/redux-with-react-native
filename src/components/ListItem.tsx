@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
 });
 
 export default ({ desc, onPress, completed }:any) => {
-    console.log('Entra', desc)
     return(
        <TouchableOpacity onPress={onPress} style={styles.container}> 
             {completed ? <Text style={[styles.text, styles.strike]}>{desc}</Text> : <Text style={styles.text}>{desc}</Text>}
