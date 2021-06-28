@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, Button, View } from "react-native";
+import ListItems from "../shared/ListItems";
 
 const styles = StyleSheet.create({
   container: {
@@ -8,12 +9,14 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     padding: 10,
     marginTop: 10,
+    flex: 1,
   }
 })
 
 const HomeScreen = ({ navigation}:any) => {
   return (
     <View style={styles.container}>
+      <ListItems/>
       <Text>HOME SCREEN</Text>
       <Button 
         title="Open detalle"

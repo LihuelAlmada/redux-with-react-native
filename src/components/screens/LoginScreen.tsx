@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     padding: 10,
     marginTop: 10,
+    flex: 1,
   }
 })
 
@@ -23,4 +24,4 @@ const LoginScreen = ({ navigation}:any) => {
   )
 }
 
-  export default LoginScreen;
+export default LoginScreen;
