@@ -5,6 +5,7 @@ import ListItem from "./components/ListItem";
 import { connect } from "react-redux";
 import Input from "./components/Input";
 import { complete, saveTodo } from "./reducers/todos";
+import AppNavigator from "./controllerScreen";
 
 const styles = StyleSheet.create({
   container: {
@@ -31,14 +32,15 @@ const styles = StyleSheet.create({
     marginVertical: 16
   }
 });
+
+
 //complete and submit no son los importados de reducers/todos, sino los atributos de mapDispatchToProps
 const App = ({ data, complete, submit }: any) => {
   const [value, setValue] = useState("");
 
-  // fadeAnim will be used as the value for opacity. Initial Value: 0
+  /*// fadeAnim will be used as the value for opacity. Initial Value: 0
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  const numb:number = 1
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
@@ -55,7 +57,7 @@ const App = ({ data, complete, submit }: any) => {
       duration: 3000,
       useNativeDriver: true,
     }).start();
-  };
+  };*/
 
   const handleChange = (val: any) => {
     setValue(val);
@@ -68,44 +70,46 @@ const App = ({ data, complete, submit }: any) => {
   };
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={styles.container}>
-      <Animated.View
-        style={[
-          styles.fadingContainer,
-          {
-            // Bind opacity to animated value
-            opacity: fadeAnim
-          }
-        ]}
-      >
-        <Text style={styles.fadingText}>Fading View!</Text>
-      </Animated.View>
-        <View style={styles.buttonRow}>
-          <Button title="Fade In View" onPress={fadeIn} />
-          <Button title="Fade Out View" onPress={fadeOut} />
-        </View>
-      </SafeAreaView>
-      <Text>Lista Productos</Text>
-      <Input 
-        onSubmit={handleSubmit} 
-        onChange={handleChange} 
-        value={value} 
-      />
-      <FlatList
-        style={styles.list}
-        data={data}
-        keyExtractor={(x) => String(x.id)}
-        renderItem={({ item }) => (
-          <ListItem
-            completed={item.completed}
-            onPress={() => complete(item.id)}
-            desc={item.desc}
-          />
-        )}
-      />
-      <StatusBar style="auto" />
-    </View>
+    <AppNavigator/>
+    // <View style={styles.container}>
+      
+    //   {/* <SafeAreaView style={styles.container}>
+    //   <Animated.View
+    //     style={[
+    //       styles.fadingContainer,
+    //       {
+    //         // Bind opacity to animated value
+    //         opacity: fadeAnim
+    //       }
+    //     ]}
+    //   >
+    //     <Text style={styles.fadingText}>Fading View!</Text>
+    //   </Animated.View>
+    //     <View style={styles.buttonRow}>
+    //       <Button title="Fade In View" onPress={fadeIn} />
+    //       <Button title="Fade Out View" onPress={fadeOut} />
+    //     </View>
+    //   </SafeAreaView> */}
+    //   {/* <Text>Lista Productos</Text>
+    //   <Input 
+    //     onSubmit={handleSubmit} 
+    //     onChange={handleChange} 
+    //     value={value} 
+    //   />
+    //   <FlatList
+    //     style={styles.list}
+    //     data={data}
+    //     keyExtractor={(x) => String(x.id)}
+    //     renderItem={({ item }) => (
+    //       <ListItem
+    //         completed={item.completed}
+    //         onPress={() => complete(item.id)}
+    //         desc={item.desc}
+    //       />
+    //     )}
+    //   />
+    //   <StatusBar style="auto" /> */}
+    // </View>
   );
 };
 
