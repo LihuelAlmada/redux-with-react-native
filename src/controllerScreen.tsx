@@ -3,10 +3,11 @@ import { createStackNavigator } from "react-navigation-stack";
 import LoginScreen from "./components/screens/LoginScreen";
 import HomeScreen from "./components/screens/HomeScreen";
 import DetalleScreen from "./components/screens/DetalleScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: HomeScreen
+    screen: HomeScreen,
   },
   Detalle: {
     screen: DetalleScreen
@@ -14,6 +15,16 @@ const AppNavigator = createStackNavigator({
   Login: {
     screen: LoginScreen
   },
-}, {initialRouteName: 'Login'});
+}, {initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#fea',
+      },
+      headerTintColor: '#555',
+      headerTitleStyle: {
+        fontWeight: '900'
+      }
+    }
+});
 
 export default createAppContainer(AppNavigator);

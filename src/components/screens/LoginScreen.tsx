@@ -17,7 +17,7 @@ const LoginScreen = ({ navigation}:any) => {
     <View style={styles.container}>
       <Text>Login</Text>
       <Button 
-        title="Open detalle"
+        title="Login"
         onPress={() => navigation.push('Home')}
       />
     </View>

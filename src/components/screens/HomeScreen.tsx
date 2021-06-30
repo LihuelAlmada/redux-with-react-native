@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
 const HomeScreen = ({ navigation}:any) => {
   return (
     <View style={styles.container}>
-      <ListItems/>
       <Text>HOME SCREEN</Text>
+      <ListItems/>
       <Button 
         title="Open detalle"
         onPress={() => navigation.push('Detalle')}
@@ -25,5 +25,11 @@ const HomeScreen = ({ navigation}:any) => {
     </View>
   )
 }
-
+HomeScreen.navigationOptions = {
+  title: 'Home',
+  headerStyle: {
+    backgroundColor: '#fea'
+  },
+  headerTintColor: '#050'
+}
 export default HomeScreen;

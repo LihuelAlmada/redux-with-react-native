@@ -1,11 +1,7 @@
-export interface IExistingNote {
-  id: string;
-  desc: string;
-  completed: boolean;
-}
+export type TabHome = {
+  TabOneScreen: undefined;
+};
 
-export interface INoteReduxProps {     
-  note: {
-    notes: IExistingNote[];
-  };
-}
+export type TabDetalle = {
+  TabTwoScreen: undefined;
+};

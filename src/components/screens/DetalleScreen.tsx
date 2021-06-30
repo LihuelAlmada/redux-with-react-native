@@ -16,8 +16,8 @@ const DetalleScreen = ({ navigation}:any) => {
     <View style={styles.container}>
       <Text>DETALLE SCREEN</Text>
       <Button 
-        title="Open detalle"
-        onPress={() => navigation.goBack()}
+        title="logout"
+        onPress={() => navigation.push('Login')}
       />
     </View>
   )

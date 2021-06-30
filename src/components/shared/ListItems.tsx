@@ -18,18 +18,9 @@ const styles = StyleSheet.create({
   list: {
     alignSelf: "stretch",
   },
-  fadingContainer: {
-    padding: 20,
-    backgroundColor: "powderblue"
+  text: {
+    fontSize: 18,
   },
-  fadingText: {
-    fontSize: 28
-  },
-  buttonRow: {
-    flexBasis: 100,
-    justifyContent: "space-evenly",
-    marginVertical: 16
-  }
 });
 
 const ListItems = ({ data, complete, submit }: any) => {
@@ -47,8 +38,7 @@ const ListItems = ({ data, complete, submit }: any) => {
 
   return(
     <View style={styles.container}>
-      <Text>Lista Productos</Text>
-      <Text>Lista Productos</Text>
+      <Text style={styles.text}>Lista Productos</Text>
       <Input 
         onSubmit={handleSubmit} 
         onChange={handleChange} 
@@ -66,8 +56,6 @@ const ListItems = ({ data, complete, submit }: any) => {
           />
         )}
       />
-      <Text>Lista Productos</Text>
-
       <StatusBar style="auto" />
     </View>
   )
